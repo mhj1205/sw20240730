@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>초등학교 저학년용 계산기</h1>
+    <form>
+        <fieldset>
+            <legend>계산기</legend>
+            <input type="text" size="2" value="0" class="hang1">
+            <select name="" id="oper">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" size="2" value="0" class="hang2">
+            <button id="resultBtn">=</button>
+            <span class="resultArea">0</span>
+        </fieldset>
+    </form>
+
+    <script>
+        // getElementsByClassName()은 리턴형이 리스트(HtmlCollection) 형태이다.
+        var hang1 = document.getElementsByClassName('hang1')[0];
+        // querySelectorAll()이나 querySelector()는 CSS 선택기를 그대로 사용.
+        var oper = document.getElementById('oper');
+        var hang2 = document.querySelector('.hang2');
+        var resultBtn = document.querySelector('#resultBtn');
+        var resultArea = document.querySelector('.resultArea');
+        
+        resultBtn.addEventListener('click', function(event){
+            event.preventDefault(); //form의 기본 기능을 잠시 중단한다.
+            cal();
+        });
+
+        function cal(){
+            if(oper.value == '+'){
+                //console.log('+')
+                var result = parseInt(hang1.value) + parseInt(hang2.value);
+            }
+            if(oper.value == '-'){
+                //console.log('-')
+                var result = parseInt(hang1.value) - parseInt(hang2.value);
+                if (result < 0){
+                    result = parseInt(hang2.value) - parseInt(hang1.value);
+                    var a = hang1.value
+                    hang1.value = hang2.value;
+                    hang2.value = a;
+                }
+            }
+            if(oper.value == '*'){
+                //console.log('*')
+                var result = parseInt(hang1.value) * parseInt(hang2.value);
+            }
+            if(oper.value == '/'){
+                //console.log('/')
+                var result = parseInt(hang1.value) / parseInt(hang2.value);
+            }
+            resultArea.innerHTML = result;
+        };
+    </script>
+</body>
+</html>

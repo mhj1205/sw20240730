@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid navy;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        div.nav ul {
+            margin: auto;
+            border: 0px solid black;
+            padding: 0;
+            /* height 속성을 주지 않고 overflow 설정 */
+            /* height: 40px; */
+            overflow: hidden;
+            width: 600px;
+        }
+        div.nav ul li {
+            width: 120px;
+            height: 50px;
+            border: 0px solid black;
+            text-align: center;
+            list-style: none;
+            float: left;
+            box-sizing: border-box;
+            line-height: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div.nav ul li:hover {
+            border-bottom: 5px solid gray;
+            font-weight: bold;
+            color: gray;
+        }
+        div.header {
+            overflow: hidden;
+        }
+        div.middle {
+            overflow: hidden;
+        }
+        div.mok ul li{
+            padding-bottom: 7px;
+        }
+        div.mok ul li:hover {
+            border-bottom: 2px solid black;
+            font-weight: bold;
+        }
+        div.footer {
+            height: 100px;
+        }
+        div.container {
+            width: 1000px;
+            margin: auto;
+        }
+        div.header h1 {
+            text-align: center;
+        }
+        div.header div {
+            height: 50px;
+        }
+
+        div.middle > div:nth-child(1) {
+            width: 180px;
+        }
+        div.middle > div:nth-child(2) {
+            width: 590px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        img {
+                max-width: 100%;
+                max-height: 100%;
+                height: 100%;
+                width: 100%;
+                display: block;
+                object-fit: contain;
+            }
+        div.middle > div:nth-child(3) {
+            width: 180px;
+        }
+        div.picMok{
+            list-style: none;
+            text-align: center;
+        }
+        div.middle > div {
+            float: left;
+            height: 300px;
+        }
+        div.picMok :hover{
+            font-size: 100%;
+        }
+        div.footer {
+            text-align: center;
+            font-size: 70%;
+        }
+        div.footer_top p{
+            display: inline-block;
+            margin: 0 2px; /* p 요소 간의 간격을 추가할 수 있습니다. */
+        }
+        .footer_top_bold{
+            font-weight: bold;
+            color: rgba(7, 6, 6, 0.986);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>현재의 엉망잔칭 개발실</h1>
+            <div class="nav">
+                <nav>
+                    <ul>
+                        <li>Home</li>
+                        <li>Profile</li>
+                        <li>Gallery</li>
+                        <li>Lecture</li>
+                        <li>Shop</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="mok">
+                <ul>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>c++</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="newjeansPic"><img src="newjeans.png"></div>
+            <div class="picMok">
+                <h5 id="Attention">Attention</h5>
+                <hr>
+                <h5 id="Ditto">Ditto</h5>
+                <hr>
+                <h5 id="Omg">Omg</h5>
+                <hr>
+                <h5 id="Supershy">Supershy</h5>
+                <hr>
+                <h5 id="Supernatural">Supernatural</h5>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer_top">
+                <p class="footer_top_bold">개인정보처리방침</p>  
+                <p>이용약관 유료서비스 이용 약관 쿠키정책 쿠키 설정</p>
+            </div>
+            <p>Kyungil University Inc.CEO명현재 CALL CENTER(+82) 1544-2390FAX(+82)-2-2664-9553주소 경상북도 대구시 동구 131, C동 6층 (신천동)</p>
+            <p>사업자등록번호716-87-01158 사업자정보확인통신판매업 신고번호제 2022-성남분당A-0557 호호스팅 서비스 사업자Amazon Web Services, Inc</p>
+            <p>ⓒ 2015-2024 두부플러스. Proudly created with Dubuplus.com</p>
+        </div>
+    </div>
+    <script>
+        var newjeansPic = document.querySelector('.newjeansPic img');
+        var Attention = document.getElementById('Attention');
+        var Ditto = document.getElementById('Ditto');
+        var Omg = document.getElementById('Omg');
+        var Supershy = document.getElementById('Supershy');
+        var Supernatural = document.getElementById('Supernatural');
+        var picMok = document.querySelector('.picMok');
+
+        picMok.addEventListener("mouseleave", function(){
+            newjeansPic.src = "newjeans.png";
+        });
+
+        Attention.addEventListener("mouseover", function(){
+            newjeansPic.src = "attention.png";
+        });
+        Ditto.addEventListener("mouseover", function(){
+            newjeansPic.src = "Ditto.png";
+        });
+        Omg.addEventListener("mouseover", function(){
+            newjeansPic.src = "Omg.png";
+        });
+        Supershy.addEventListener("mouseover", function(){
+            newjeansPic.src = "Supershy.png";
+        });
+        Supernatural.addEventListener("mouseover", function(){
+            newjeansPic.src = "Supernatural.png";
+        });
+    </script>
+</body>
+</html>
